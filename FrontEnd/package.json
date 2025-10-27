@@ -17,10 +17,12 @@
     "@tailwindcss/vite": "^4.1.15",
     "axios": "^1.12.2",
     "dom": "^0.0.3",
+    "jwt-decode": "^4.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.4",
     "router": "^2.2.0",
+    "sweetalert2": "^11.26.3",
     "tailwindcss": "^4.1.15"
   },
   "devDependencies": {

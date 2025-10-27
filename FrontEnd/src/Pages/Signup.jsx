@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { TextField, Button, Typography, Card, CardContent } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -27,9 +28,18 @@ const Signup = () => {
         password,
         role,
       });
+      Swal.fire({
+        title: "Signup Successful!",
+        text: "You can now log in with your credentials.",
+        icon: "success"
+      });
       navigate("/login");
     } catch (err) {
-      setError(err.response?.data?.error || "Signup failed");
+      setError(err.response?.data?.error || Swal.fire({
+        title: "Signup Failed",
+        text: "Please check your details and try again.",
+        icon: "error"
+      }))
     }
   };
 

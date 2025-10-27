@@ -4,17 +4,23 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
 const bookRoutes = require("./routes/bookRoutes");
 
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:5173", 
+  credentials: true,               
+  allowedHeaders: ["Content-Type", "Authorization"], 
+}));
 app.use(express.json());
 
 // Routes
 app.use("/auth", authRoutes);  
 app.use("/books", bookRoutes);
+app.use("/users", userRoutes);
 
 // MongoDB Connection
 mongoose
